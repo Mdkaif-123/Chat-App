@@ -43,7 +43,6 @@ const Home = (props) => {
         })
 
         socket.on('userLeft', (restUsers, id) => {
-            setMessages([])
             onlineUsers.forEach(element => {
                 if (element.id === id) {
                     toast(`${element.userName} has left the chat`, alertOption)

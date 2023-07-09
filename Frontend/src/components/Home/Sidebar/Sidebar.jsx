@@ -13,12 +13,17 @@ import {
 import { useNavigate } from "react-router-dom";
 import Avatar, { genConfig } from 'react-nice-avatar'
 import socket from '../../socket/socket'
+import { useContext } from "react";
+import UserContext from "../../../global/userContext";
 
 export default function Sidebar(props) {
+    const context = useContext(UserContext)
+    const { setMessages } = context
     const { onlineUsers } = props
     const navigate = useNavigate()
 
     const handleLogout = () => {
+        setMessages([])
         socket.disconnect();
         localStorage.removeItem("chatAppUser")
         localStorage.removeItem("chatAppEmail")
