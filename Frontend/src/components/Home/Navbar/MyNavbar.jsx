@@ -26,7 +26,6 @@ export default function MyNavbar(props) {
     }, []);
 
     const toggleMode = () => {
-        console.log(mode);
         if (mode === 'dark') {
             setMode("light")
         } else {
@@ -43,7 +42,7 @@ export default function MyNavbar(props) {
                         href="/"
                         className="mr-4 cursor-pointer"
                     >
-                        <img className="w-40" src="https://res.cloudinary.com/dngfmzv2g/image/upload/v1688847417/chat-cord-high-resolution-logo-color-on-transparent-background_fnxoaq.png" alt="" />
+                        <img className="w-40" src="https://res.cloudinary.com/dngfmzv2g/image/upload/v1688912173/chat-cord-high-resolution-logo-color-on-transparent-background_1_ggynko.png" alt="Chat Cord" />
                     </Typography>
                     <div className="flex items-center gap-4">
                         <div onClick={toggleMode} className="theme">
@@ -51,7 +50,7 @@ export default function MyNavbar(props) {
                                 {mode === 'light' ? <MoonIcon className="h-6 w-6 cursor-pointer dark:text-white" /> : <SunIcon className="h-6 w-6 cursor-pointer dark:text-white" />}
                             </Tooltip>
                         </div>
-                        <Avatar className="p-0.5 w-14 h-14" {...genConfig(`${localStorage.getItem('chatAppUser')}`)} />
+                        <Avatar className="p-0.5 w-12 h-12" {...genConfig(`${localStorage.getItem('chatAppUser')}`)} />
                     </div>
                 </div>
             </Navbar>

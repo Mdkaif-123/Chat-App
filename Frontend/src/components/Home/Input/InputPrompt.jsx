@@ -4,7 +4,7 @@ import socket from "../../socket/socket";
 import UserContext from "../../../global/userContext";
 
 
-export default function InputPrompt() {
+export default function InputPrompt(props) {
     const [text, setText] = React.useState("");
     const onChange = ({ target }) => setText(target.value);
 
@@ -51,7 +51,6 @@ export default function InputPrompt() {
                     containerProps={{
                         className: "min-w-0 h-12 ",
                     }}
-                    color="purple"
                 />
                 <Button
                     onClick={sendMessage}

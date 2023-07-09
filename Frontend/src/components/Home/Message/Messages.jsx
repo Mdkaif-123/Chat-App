@@ -18,15 +18,11 @@ function Messages(props) {
     }, [messages])
 
     useEffect(() => {
-
         const handleOnlineUsers = (users) => {
             setUserJoined(true)
-            console.log(users)
             setOnlineUsers(users)
         };
-
         socket.on('onlineUsers', handleOnlineUsers)
-
         return () => {
             socket.off();
         }
@@ -35,9 +31,9 @@ function Messages(props) {
 
     return (
         <div className="main ">
-            <div className='w-full h-full bg-[#f6f6f6] pb-24 overflow-y-scroll dark:bg-[#0F172A]' style={{ height: "90vh", overflowY: "auto" }}>
+            <div className='w-full h-full bg-[#f6f6f6] pb-28 overflow-y-scroll dark:bg-[#0F172A]' style={{ height: "90vh", overflowY: "auto" }}>
                 <ScrollToBottom >
-                    {messages.length <= 0 ? <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_96bovdur.json" background="transparent" speed="1" style={{ maxWidth: "500px", maxHeight: "500px", margin: "0 auto" }} loop autoplay></lottie-player> :
+                    {messages.length <= 0 ? <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_96bovdur.json" background="transparent" speed="1" style={{ maxWidth: "500px", maxHeight: "500px", margin: " 2rem auto" }} loop autoplay></lottie-player> :
                         messages.map((message, index) => {
                             return <Message key={index} name={`${message.userName}`} time={`${message.date}`} message={`${message.message}`} />
                         })

@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Home = (props) => {
     const context = useContext(UserContext)
-    const { user, setUser } = context
+    const { setUser, setMessages } = context
     const navigate = useNavigate()
 
     const [onlineUsers, setOnlineUsers] = useState([])
@@ -40,10 +40,10 @@ const Home = (props) => {
         socket.on('userJoined', (user) => {
             toast(`${user.userName} joined the chat`, alertOption)
             setOnlineUsers([...onlineUsers, user])
-            console.log(onlineUsers);
         })
 
         socket.on('userLeft', (restUsers, id) => {
+            setMessages([])
             onlineUsers.forEach(element => {
                 if (element.id === id) {
                     toast(`${element.userName} has left the chat`, alertOption)
@@ -56,7 +56,6 @@ const Home = (props) => {
     useEffect(() => {
         const handleOnlineUsers = (users) => {
             setUserJoined(true)
-            console.log(users)
             setOnlineUsers(users)
         };
 
@@ -74,7 +73,7 @@ const Home = (props) => {
                 <div className="leftSide"><Sidebar onlineUsers={onlineUsers} /></div>
                 <div className="body overflow-y-auto ">
                     <Messages />
-                    <InputPrompt />
+                    <InputPrompt mode={mode} />
                     <ToastContainer />
                 </div>
             </section>

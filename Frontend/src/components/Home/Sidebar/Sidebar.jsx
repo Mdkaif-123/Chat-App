@@ -30,9 +30,9 @@ export default function Sidebar(props) {
             <Card className="w-36 m-0 p-0 rounded-none sidebar inline-block overflow-y-auto dark:bg-[#131d35] border-none">
                 <List className="min-w-min my-6">
                     {onlineUsers.map((user, index) => {
-                        return <Tooltip className="bg-[#6366F1]" content={`🔗 ${user.userName}`} placement="right">
+                        return <Tooltip key={user.id} className="bg-[#6366F1]" content={`🔗 ${user.userName}`} placement="right">
                             <ListItem key={index} className="p-0 dark:hover:bg-[#1b2536e7] focus-within:dark:bg-[#1b2536e7]" style={{ display: "flex", justifyContent: "center" }}>
-                            <ListItemPrefix className="py-3" style={{ display: "flex", justifyContent: "center", margin: "0px" }}>
+                            <ListItemPrefix key={index} className="py-3" style={{ display: "flex", justifyContent: "center", margin: "0px" }}>
                             <Avatar className="p-0.5 w-12 h-12" {...genConfig(`${user.userName}`)} />
                             </ListItemPrefix>
                         </ListItem></Tooltip>
