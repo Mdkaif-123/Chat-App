@@ -76,11 +76,11 @@ export default function Login(props) {
                 </CardHeader>
                 <form onSubmit={handleSubmit}>
                     <CardBody className="flex flex-col gap-4">
-                        <Typography className="text-center" variant="h3" color="white">
+                        <Typography className="text-center text-black dark:text-white" variant="h3" color="white">
                             Join Now
                         </Typography>
-                        <Input onChange={handleChange} name="userName" id="userName" value={credentials.userName} color="white" label="Username" type="text" size="lg" required />
-                        <Input onChange={handleChange} name="email" id="email" value={credentials.email} color="white" label="Email" type="email" size="lg" required />
+                        <Input onChange={handleChange} name="userName" id="userName" value={credentials.userName} color={props.mode === 'dark' ? "white" : "black"} label="Username" type="text" size="lg" required />
+                        <Input onChange={handleChange} name="email" id="email" value={credentials.email} color={props.mode === 'dark' ? "white" : "black"} label="Email" type="email" size="lg" required />
                     </CardBody>
                     <CardFooter className="pt-0">
                         <Button type="submit" className="bg-[#6366F1]" fullWidth>
